@@ -45,7 +45,7 @@ while(<IN>)
 			if ($printme eq "Yes")
 				{
 				$qual = substr($_, $startpos, 36);
-				print $fastqi{id}."\n".$fastqi{seq}."\n+\n".$qual."\n";
+				print OUT $fastqi{id}."\n".$fastqi{seq}."\n+\n".$qual."\n";
 				}
 			}		
 		}
