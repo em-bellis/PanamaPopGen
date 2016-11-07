@@ -51,3 +51,4 @@ while(<IN>)
 		}
 	}
 close(IN);
+close(OUT);
