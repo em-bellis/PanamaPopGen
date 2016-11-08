@@ -19,7 +19,7 @@ while(<IN>)
 		$fastqi{id} = $_;
 		next;
 		}
-	if ($_ =~ /^\+$/) 
+	if ($_ =~ /^\+$|^\+SRR/) 
 		{
 		$fastqi{plus} = "+"; #is the + line
 		next;
