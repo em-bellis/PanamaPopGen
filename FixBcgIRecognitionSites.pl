@@ -41,12 +41,12 @@ while(<IN>)
                                 	}
 				elsif ($ssi =~ /(\w{12})GC\w{1}(\w{6})\w{3}(\w{12})/)
 					{
-					print OUT $1.GCT.$2.ACG.$3."\n";
+					print OUT $1.GCA.$2.TCG.$3."\n";
 					$matchedLines2++;
 					}
 				elsif ($ssi =~ /(\w{12})G\w{2}(\w{6})\w{2}G(\w{12})/)
                                 	{
-                                	print OUT $1.GCT.$2.ACG.$3."\n";
+                                	print OUT $1.GCA.$2.TCG.$3."\n";
                                 	$matchedLines2++;
                                 	}
 				else 
