@@ -29,21 +29,31 @@ while(<IN>)
 		$ssi = $_;
 		if ($ssi =~ /^[ACTGN]+$/)  #is the line a sequence line?
 			{
-			if ($ssi =~ /(\w{12})CG\w{1}(\w{6})\w{3}(\w{12})|(\w{12})C\w{2}(\w{6})\w{2}C(\w{12})/)
-				{
-				print OUT $1.CGA.$2.TGC.$3."\n";
-				$matchedLines1++;
-				}
-			elsif ($ssi =~ /(\w{12})GC\w{1}(\w{6})\w{3}(\w{12})|(\w{12})G\w{2}(\w{6})\w{2}G(\w{12})/)
-				{
-				print OUT $1.GCT.$2.ACG.$3."\n";
-				$matchedLines2++;
-				}
-			else 
-				{
-				print OUT $_."\n";
-				$unmatchedLines++;
-				}
+			if ($ssi =~ /(\w{12})CG\w{1}(\w{6})\w{3}(\w{12})/)
+					{
+					print OUT $1.CGA.$2.TGC.$3."\n";
+					$matchedLines1++;
+					}
+				elsif ($ssi =~ /(\w{12})C\w{2}(\w{6})\w{2}C(\w{12})/)
+                                	{
+                                	print OUT $1.CGA.$2.TGC.$3."\n";
+                                	$matchedLines1++;
+                                	}
+				elsif ($ssi =~ /(\w{12})GC\w{1}(\w{6})\w{3}(\w{12})/)
+					{
+					print OUT $1.GCT.$2.ACG.$3."\n";
+					$matchedLines2++;
+					}
+				elsif ($ssi =~ /(\w{12})G\w{2}(\w{6})\w{2}G(\w{12})/)
+                                	{
+                                	print OUT $1.GCT.$2.ACG.$3."\n";
+                                	$matchedLines2++;
+                                	}
+				else 
+					{
+					$unmatchedLines++;
+					print OUT $_."\n";
+					}
 			}
 		else   #it's a quality line
 			{
