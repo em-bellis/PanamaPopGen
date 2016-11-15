@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-##Objective: This script will 'mask' bases at BcgI recognition site.  Bases must match at positions 13 and 14 or 13 and 24, or the entire sequence will be masked with 'N'\n"
+##Objective: This script will 'mask' bases at BcgI recognition site.  Bases must match at positions 13 and 14 or 13 and 24 '\n"
 
 my $seqfile = $ARGV[0];		# raw reads, fastq format
 my $outfile = $ARGV[1];		# name for output file, fastq format
@@ -41,9 +41,8 @@ while(<IN>)
 				}
 			else 
 				{
-				print OUT "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\n";
+				print OUT $_."\n";
 				$unmatchedLines++;
-				#print $_."\n";
 				}
 			}
 		else   #it's a quality line
