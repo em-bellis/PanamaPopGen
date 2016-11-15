@@ -43,7 +43,7 @@ while(<IN>)
 				{
 				print OUT "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\n";
 				$unmatchedLines++;
-				print $_."\n";
+				#print $_."\n";
 				}
 			}
 		else   #it's a quality line
