@@ -20,7 +20,7 @@ while ($line = <INFILE>) {
 	if ($lineParts[3] != $prevPos && $lineParts[4] != $prevPos2) {  ##ignore locus if it starts or ends in same position but annotated with different gene name
 		$minPos = max($position - $decayWindow, 0);
 		$maxPos = $position + $decayWindow;
-		if ($lineParts[3] >= $minPos && $lineParts[4] <= $maxPos) {
+		if (($lineParts[3] >= $minPos && $lineParts[4] <= $maxPos)|| ($position >= $lineParts[3] && $position <= $lineParts[4])) {
 			print $snpName."\t".$position."\t".$line."\n";
 			$prevPos = $lineParts[3];
 			$prevPos2 = $lineParts[4];
